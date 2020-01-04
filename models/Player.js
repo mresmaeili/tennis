@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const playerSchema = mongoose.Schema({
+const playerSchema = Schema({
   email: {
     type: String,
     index: true,
@@ -23,14 +24,12 @@ const playerSchema = mongoose.Schema({
     type: Number,
     default: 1
   },
-  picture: {
-    //type Buffr for images - config later if needed
+  avatar: {
     type: String,
     default:
       'https://cdn4.iconfinder.com/data/icons/professions-1-2/151/36-512.png'
   },
-  matches: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Matches' }]
-  // gottaa figureout available matches and the matches player is already singed in for
+  matches: [{ type: Schema.Types.ObjectId, ref: 'match' }]
 });
 
 module.exports = Player = mongoose.model('player', playerSchema);

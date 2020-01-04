@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Match = require('../models/Match');
+const Match = require('../../models/Match');
 
 router.get('/', (req, res) => {
   res.send('Match Info');

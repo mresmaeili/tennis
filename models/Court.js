@@ -1,24 +1,19 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const pointSchema = new mongoose.Schema({
-  type: {
-    type: String,
-    enum: ['Point']
-  },
-  coordinates: {
-    type: [Number]
-  }
-});
-
-const courtSchema = mongoose.Schema({
+const courtSchema = Schema({
   name: {
     type: String,
     required: true
   },
   location: {
-    type: pointSchema
+    type: Schema.Types.ObjectId,
+    ref: 'location'
+  },
+  rating: {
+    type: Number,
+    default: 0
   }
 });
 
 module.exports = Court = mongoose.model('court', courtSchema);
-module.exports = Point = mongoose.model('point', pointSchema);

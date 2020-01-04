@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 //init middleware
 app.use(express.json({ extended: false }));
 
-const matchesRoute = require('./routes/matches');
-const playersRoute = require('./routes/players');
+const matchesRoute = require('./routes/api/matches');
+const playersRoute = require('./routes/api/players');
 
 app.use('/matches', matchesRoute);
 app.use('/players', playersRoute);
